@@ -12,7 +12,7 @@ require 5.005;
 #use strict 'vars';  # we're going to be doing a lot of sym refs
 #use vars qw($VERSION @EXPORT @EXPORT_OK);
 
-$VERSION = 0.01;
+$VERSION = 0.02;
 @EXPORT = ();
 @EXPORT_OK = ();
 
@@ -123,7 +123,16 @@ Object::Exporter - Lightweight exporting of object methods
   
 =head1 DESCRIPTION
 
-This package allows you to export object methods. It supports C<import()>, C<@EXPORT> and C<@EXPORT_OK> and not a whole lot else. Each package into which your object methods are imported gets its own instance of the object. This ensures that there are no interaction effects between multiple packages that use your object.
+This module makes it much easier to make a module have a object/method interface 
+similar to the one of CGI.pm. You can take any old module that has an object-
+oriented interface and convert it to have a hybrid interface by simply adding 
+"use base 'Object::Exporter'" to your code.
+
+This package allows you to export object methods. It supports C<import()>, 
+C<@EXPORT> and C<@EXPORT_OK> and not a whole lot else. Each package into 
+which your object methods are imported gets its own instance of the object. 
+This ensures that there are no interaction effects between multiple packages 
+that use your object.
 
 Setting up a module to export its variables and functions is simple:
 
